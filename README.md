@@ -90,10 +90,3 @@ Saídas esperadas:
 As figuras são geradas automaticamente em `outputs/graph.png` e `outputs/clusters.png` após a execução do comando acima.
 
 ---
-
-### 📹 Roteiro do Vídeo (até 4 min) — *docs/pitch_script.md*
-1. **Contexto Sabor Express**: picos de almoço/jantar, atrasos, custos.
-2. **Modelagem**: cidade como grafo; pesos = tempo/distância.
-3. **Solução**: K‑Means → zonas; A\* entre paradas; ordem gulosa.
-4. **Resultados**: métricas e figuras; ganho de eficiência.
-5. **Próximos passos**: dinâmica, VRP, MILP/metaheurísticas.
