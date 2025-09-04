@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "Sabor Express - Rota Inteligente (A*, K-Means)"
+git branch -M main
+git remote add origin <https://github.com/gasdp-ofc/Sabor-Express/new/main>
+git push -u origin main
