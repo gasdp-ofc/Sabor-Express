@@ -1,0 +1,12 @@
+{
+  "total_route_cost": 141.28220000000002,
+  "cluster_costs": {
+    "0": 59.87360000000002,
+    "1": 39.916900000000005,
+    "2": 41.4917
+  },
+  "avg_cost_per_cluster": 47.09406666666667,
+  "num_deliveries": 45,
+  "num_clusters": 3,
+  "depot_node": 0
+}

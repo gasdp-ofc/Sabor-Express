@@ -1,0 +1,8 @@
+=== Sabor Express Route Optimization ===
+Deliveries: 45 | Couriers (clusters): 3
+Total route cost: 141.28
+  Cluster 0: cost=59.87, stops=13
+  Cluster 1: cost=39.92, stops=17
+  Cluster 2: cost=41.49, stops=15
+Metrics saved to outputs/metrics.json
+Figures saved to outputs/graph.png and outputs/clusters.png
