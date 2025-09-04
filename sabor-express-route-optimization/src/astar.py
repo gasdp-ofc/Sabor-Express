@@ -1,10 +1,11 @@
-
 import heapq
 from typing import Dict, Tuple, List, Optional
 from .graph import Graph
 
 def astar(graph: Graph, start: int, goal: int) -> Tuple[float, List[int]]:
-    """Return (cost, path) from start to goal using A*."""
+    """Retorna (custo, caminho) de start até goal usando A*.
+    f(n) = g(n) + h(n), onde h(n) é a distância euclidiana até o objetivo.
+    """
     open_heap: List[Tuple[float, int]] = []
     heapq.heappush(open_heap, (0.0, start))
 
@@ -14,7 +15,7 @@ def astar(graph: Graph, start: int, goal: int) -> Tuple[float, List[int]]:
     while open_heap:
         _, current = heapq.heappop(open_heap)
         if current == goal:
-            # reconstruct
+            # reconstrói o caminho
             path = [current]
             while came_from[current] is not None:
                 current = came_from[current]  # type: ignore
@@ -30,4 +31,4 @@ def astar(graph: Graph, start: int, goal: int) -> Tuple[float, List[int]]:
                 f = tentative + graph.euclidean(neighbor, goal)  # h(n)
                 heapq.heappush(open_heap, (f, neighbor))
 
-    return float('inf'), []  # no path
+    return float('inf'), []  # sem caminho

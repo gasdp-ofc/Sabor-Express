@@ -1,11 +1,10 @@
-
-from typing import List, Tuple, Dict
+from typing import List, Tuple
 import math
 from .graph import Graph
 from .astar import astar
 
 def nearest_neighbor_order(graph: Graph, waypoints: List[int], start: int) -> List[int]:
-    """Greedy order of visiting waypoints using straight-line distance from current node."""
+    """Gera ordem gulosa das paradas usando distância em linha reta (euclidiana) a partir do nó atual."""
     remaining = set(waypoints)
     order: List[int] = []
     current = start
@@ -17,8 +16,10 @@ def nearest_neighbor_order(graph: Graph, waypoints: List[int], start: int) -> Li
     return order
 
 def route_for_cluster(graph: Graph, cluster_points: List[int], depot: int) -> Tuple[float, List[int]]:
-    """Build full route (sequence of node ids) starting at depot, visiting all cluster points, and returning to depot.
-       Uses A* between consecutive stops and greedy ordering."""
+    """
+    Constrói a rota completa (sequência de nós) iniciando no depósito, visitando todas as paradas do cluster
+    e retornando ao depósito. Usa A* entre paradas consecutivas e ordenação gulosa.
+    """
     if not cluster_points:
         return 0.0, [depot]
 
@@ -33,11 +34,10 @@ def route_for_cluster(graph: Graph, cluster_points: List[int], depot: int) -> Tu
         if not path:
             return math.inf, []
         total_cost += cost
-        # append without duplicating current
         full_path += path[1:]
         current = stop
 
-    # return to depot
+    # retorna ao depósito
     cost, path = astar(graph, current, depot)
     if not path:
         return math.inf, []
